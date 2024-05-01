@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="WEB-INF/template/template.xhtml">
+
+<ui:define name="titulo">
+	Tarefa
+</ui:define>
+
+
+	<ui:define name="conteudo">
+		<h:form id="form">
+			
+			<p:outputLabel value="Nome: " for="nomeC" />
+					<p:inputText id="nomeC" value="#{pbean.pessoa.nome}"
+						style="width: 100%;"  />
+						
+			<p:outputLabel value="cidade: " for="cidade" />
+					<p:inputText id="cidade" value="#{pbean.pessoa.cidade}"
+						style="width: 100%;" />	
+								
+		<p:outputLabel value="email: " for="emailC" />
+					<p:inputText id="emailC" value="#{pbean.pessoa.email}"
+						style="width: 100%;"  />
+						
+			<p:outputLabel value="cep: " for="cepC" />
+					<p:inputText id="cepC" value="#{pbean.pessoa.cep}"
+						style="width: 100%;" />
+						
+			<p:outputLabel value="endereco: " for="enderecoC" />
+					<p:inputText id="enderecoC" value="#{pbean.pessoa.endereco}"
+						style="width: 100%;" />
+						
+			<p:outputLabel value="pais: " for="paisC" />
+					<p:inputText id="paisC" value="#{pbean.pessoa.pais}"
+						style="width: 100%;" />
+						
+			<p:outputLabel value="usuario: " for="usuarioC" />
+					<p:inputText id="usuarioC" value="#{pbean.pessoa.usuario}"
+						style="width: 100%;" />
+						
+			<p:outputLabel value="telefone: " for="telefoneC" />
+					<p:inputMask id="telefoneC" value="#{pbean.pessoa.telefone}"
+						style="width: 100%;" mask="(999) 999-9999"/>	
+						
+						 <p:selectOneMenu id="country" value="#{pbean.pessoa.cargoId.cargoid}" style="width:100%">
+                    
+                    <f:selectItem itemLabel="Selecione um cargo" itemValue="" noSelectionOption="true"/>
+                    <f:selectItems value="#{pbean.cargo}" var = "a" itemValue="#{a.cargoid}" itemLabel="#{a}"/>
+                </p:selectOneMenu>
+						
+			<br/><p:commandButton value="Salvar" update = ":form" action="#{pbean.salvaPessoa}" />	
+						
+		</h:form>
+
+
+	</ui:define>
+
+</ui:composition>
